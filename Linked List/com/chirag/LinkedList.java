@@ -1,5 +1,7 @@
 package com.chirag;
 
+//import Arrays.Sort.insertion_sort;
+
 public class LinkedList {
     Node head;
     int size;
@@ -133,25 +135,33 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList l = new LinkedList();
-        l.push(10);
-        l.push(20);
-        l.push(30);
+//        l.push();
+//        l.push(20);
+//        l.push(30);
+        // l.display();
+        // l.insertAfter(l.head, 100);
+        // l.display();
+//        l.insert(3, 2000);
+        // l.display();
+        l.append(6);
+        l.append(5);
+        l.append(3);
+        l.append(1);
+        l.append(8);
+        l.append(7);
+        l.append(2);
+        l.append(4);
         l.display();
-        l.insertAfter(l.head, 100);
-        l.display();
-        l.insert(3, 200);
-        l.display();
-        l.append(1000);
-        l.display();
-        System.out.println(l.deleteFirst());
-        l.display();
-        System.out.println(l.deleteFirst());
-        l.display();
-        System.out.println(l.deleteLast());
-        l.display();
-        System.out.println(l.delete(1));
-        l.display();
-        System.out.println(l.count());
+        // System.out.println(l.deleteFirst());
+        // l.display();
+        // System.out.println(l.deleteFirst());
+        // l.display();
+        // System.out.println(l.deleteLast());
+        // l.display();
+        // System.out.println(l.delete(1));
+        // l.display();
+        // System.out.println(l.count());
+        l.insertion_sort();
     }
 
     public int get_count(Node head){
@@ -164,5 +174,24 @@ public class LinkedList {
 
     public int recursive_count(){
         return get_count(head);
+    }
+
+    public void insertion_sort(){
+        Node current = head;
+
+        while(current!=null){
+            Node temp = head;
+            while(temp!=current){
+                if(temp.data > current.data){
+                    int val = temp.data;
+                    temp.data = current.data;
+                    current.data = val;
+                }
+                temp = temp.next;
+            }
+            current = current.next;
+        }
+
+        display();
     }
 }
